@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FunctionCallingDemo.Views.NewsView"
+             Title="NewsView"
+             xmlns:vm="clr-namespace:FunctionCallingDemo.ViewModels"
+             x:DataType="vm:NewsViewModel">
+
+    <Grid Margin="10" 
+          RowDefinitions="Auto,Auto,Auto,*"
+          ColumnDefinitions="Auto,Auto"
+          RowSpacing="10"
+          ColumnSpacing="10">
+
+        <Label Text="What do you want to know?"
+               Grid.ColumnSpan="2"
+               VerticalOptions="Start" 
+               HorizontalOptions="Start" />
+        
+        <Entry Grid.Row="1" 
+               Grid.ColumnSpan="2"
+               Text="{Binding Prompt}"
+               WidthRequest="400"
+               HorizontalOptions="Start"
+               FontSize="Medium"
+               BackgroundColor="LightBlue"/>
+
+        <Button Grid.Row="2"
+                HorizontalOptions="Center"
+                Text="Send message to the smart assistant"
+                WidthRequest="300"
+                Command="{Binding AskQuestionCommand}"/>
+
+        <ActivityIndicator Grid.Row="2"
+                           Grid.Column="1"
+                           HorizontalOptions="End"
+                           IsRunning="{Binding IsBusy}"/>
+
+        <Editor Grid.Row="3"
+                Grid.ColumnSpan="2"
+                WidthRequest="400"
+                HeightRequest="300"
+                FontSize="Small"
+                BackgroundColor="LightGreen"
+                Text="{Binding Answer}"/>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,23 @@
+﻿{
+    "name": "get_top_headlines",
+    "description": "Get top news headlines by country and/or category",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "query": {
+                "type": "string",
+                "description": "Freeform keywords or a phrase to search for.",
+            },
+            "country": {
+                "type": "string",
+                "description": "The 2-letter ISO 3166-1 code of the country you want to get headlines for",
+            },
+            "category": {
+                "type": "string",
+                "description": "The category you want to get headlines for",
+                "enum": ["business","entertainment","general","health","science","sports","technology"]
+            }
+        },
+        "required": [],
+    }
+}
